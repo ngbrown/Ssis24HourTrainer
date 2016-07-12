@@ -1,2 +1,5 @@
 syntax: glob
 .vs/
+*.user
+obj/
+bin/
