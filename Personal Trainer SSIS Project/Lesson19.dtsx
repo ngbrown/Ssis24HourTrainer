@@ -12,8 +12,8 @@
   DTS:ObjectName="Lesson19"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{54454965-E875-49E3-ADE3-6DBF09346E56}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{B42D713F-3AFF-4D08-9266-9F79E6CF4773}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -85,6 +85,66 @@
               DTS:TextQualified="True"
               DTS:ObjectName="VacationDays"
               DTS:DTSID="{8309F789-18FA-413A-8F27-693C9A617CD5}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{44512155-3B83-40C0-B148-E171FFBE61E0}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Inventory.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductID"
+              DTS:DTSID="{85426763-F032-4336-A9B9-F45F7886D0EE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LocationID"
+              DTS:DTSID="{CFC1CE8E-D076-4262-AA04-B368EFE75774}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Shelf"
+              DTS:DTSID="{024F80A8-9F55-453B-9B8E-25045848DBA9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Bin"
+              DTS:DTSID="{072D2D4C-443D-41F7-895B-F97F99CB3AE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PhysicalCount"
+              DTS:DTSID="{6E4E5FC6-09A8-4062-99DF-A1F924DF4629}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -281,135 +341,100 @@
               </outputs>
             </component>
             <component
-              refId="Package\Excel Extract\Union All"
-              componentClassID="DTSTransform.UnionAll.3"
-              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All"
-              version="1">
+              refId="Package\Excel Extract\Flat File Destination"
+              componentClassID="DTSAdapter.FlatFileDestination.3"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Excel Extract\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Excel Extract\Union All.Inputs[Union All Input 1]"
-                  name="Union All Input 1">
+                  refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[ProductID]"
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].Columns[ProductID]"
                       cachedDataType="r8"
                       cachedName="ProductID"
-                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[ProductID]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]}</property>
-                      </properties>
-                    </inputColumn>
+                      externalMetadataColumnId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[ProductID]" />
                     <inputColumn
-                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[LocationID]"
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].Columns[LocationID]"
                       cachedDataType="r8"
                       cachedName="LocationID"
-                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[LocationID]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[LocationID]}</property>
-                      </properties>
-                    </inputColumn>
+                      externalMetadataColumnId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LocationID]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[LocationID]" />
                     <inputColumn
-                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[Shelf]"
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].Columns[Shelf]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Shelf"
-                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Shelf]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Shelf]}</property>
-                      </properties>
-                    </inputColumn>
+                      externalMetadataColumnId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Shelf]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Shelf]" />
                     <inputColumn
-                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[Bin]"
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].Columns[Bin]"
                       cachedDataType="r8"
                       cachedName="Bin"
-                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Bin]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Bin]}</property>
-                      </properties>
-                    </inputColumn>
+                      externalMetadataColumnId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Bin]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[Bin]" />
                     <inputColumn
-                      refId="Package\Excel Extract\Union All.Inputs[Union All Input 1].Columns[PhysicalCount]"
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].Columns[PhysicalCount]"
                       cachedDataType="r8"
                       cachedName="PhysicalCount"
-                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[PhysicalCount]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[PhysicalCount]}</property>
-                      </properties>
-                    </inputColumn>
+                      externalMetadataColumnId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PhysicalCount]"
+                      lineageId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output].Columns[PhysicalCount]" />
                   </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\Excel Extract\Union All.Inputs[Union All Input 2]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Union All Input 2">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Excel Extract\Union All.Outputs[Union All Output 1]"
-                  name="Union All Output 1">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]"
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductID]"
                       dataType="r8"
-                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[ProductID]"
                       name="ProductID" />
-                    <outputColumn
-                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[LocationID]"
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LocationID]"
                       dataType="r8"
-                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[LocationID]"
                       name="LocationID" />
-                    <outputColumn
-                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Shelf]"
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Shelf]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Shelf]"
                       name="Shelf" />
-                    <outputColumn
-                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Bin]"
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Bin]"
                       dataType="r8"
-                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[Bin]"
                       name="Bin" />
-                    <outputColumn
-                      refId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[PhysicalCount]"
+                    <externalMetadataColumn
+                      refId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[PhysicalCount]"
                       dataType="r8"
-                      lineageId="Package\Excel Extract\Union All.Outputs[Union All Output 1].Columns[PhysicalCount]"
                       name="PhysicalCount" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
             </component>
           </components>
           <paths>
             <path
               refId="Package\Excel Extract.Paths[Excel Source Output]"
-              endId="Package\Excel Extract\Union All.Inputs[Union All Input 1]"
+              endId="Package\Excel Extract\Flat File Destination.Inputs[Flat File Destination Input]"
               name="Excel Source Output"
               startId="Package\Excel Extract\Excel Source.Outputs[Excel Source Output]" />
           </paths>
@@ -1155,23 +1180,23 @@ WHERE        (Quantity &gt; 2)</property>
           Id="Package\Excel Extract\Excel Source"
           TopLeft="285,145" />
         <NodeLayout
-          Size="123,42"
-          Id="Package\Excel Extract\Union All"
-          TopLeft="298,265" />
+          Size="174,42"
+          Id="Package\Excel Extract\Flat File Destination"
+          TopLeft="274,269" />
         <EdgeLayout
           Id="Package\Excel Extract.Paths[Excel Source Output]"
-          TopLeft="357.5,187">
+          TopLeft="358.25,187">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,78"
+              EndConnector="0,82"
               Start="0,0"
-              End="0,70.5">
+              End="0,74.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,70.5" />
+                    End="0,74.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1238,7 +1263,7 @@ WHERE        (Quantity &gt; 2)</property>
     design-time-name="Package\OLE DB Extract">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="152,42"
           Id="Package\OLE DB Extract\OLE DB Source"
@@ -1266,7 +1291,9 @@ WHERE        (Quantity &gt; 2)</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
