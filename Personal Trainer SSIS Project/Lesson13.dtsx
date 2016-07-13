@@ -12,11 +12,21 @@
   DTS:ObjectName="Lesson13"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{5D914DC4-68E1-49D1-8026-388155CCD2A9}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{7808CA0E-A37C-4EE1-8B1A-3DBBD3149F56}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76547E01-0A9D-412A-8B0A-189ADD0761A5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strURL">
+      <DTS:VariableValue
+        DTS:DataType="8">www.harley-davidson.com</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Execute Process Task"
@@ -28,10 +38,12 @@
       DTS:ObjectName="Execute Process Task"
       DTS:ThreadHint="0">
       <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Arguments">@[User::strURL]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <ExecuteProcessData
           Executable="D:\dev\Learning\SSIS\Ssis24HourTrainer\Personal Trainer SSIS Project\PingParameter.bat"
-          Arguments="www.bing.com" />
+          Arguments="www.harley-davidson.com" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
