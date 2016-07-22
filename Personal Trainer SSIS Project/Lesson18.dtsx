@@ -12,8 +12,8 @@
   DTS:ObjectName="Lesson18"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{B5A6BE12-3AA7-44C3-8B60-B7EDE22BA0CE}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{5528D1EC-FE05-4775-86E8-86FE788F7654}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="AdventureWorks2012">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson18-{EBC7C3FF-6F83-48E9-A8E3-07B2A24097A4}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson18-{EBC7C3FF-6F83-48E9-A8E3-07B2A24097A4}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -34,7 +34,7 @@
       DTS:ObjectName="Excel Connection Manager">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\dev\Learning\SSIS\Ssis24HourTrainer\Personal Trainer SSIS Project\Inventory Worksheet.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\dev\Learning\SSIS\Ssis24HourTrainer\Personal Trainer SSIS Project\Inventory Worksheet.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1093,10 +1093,6 @@ WHERE        (Quantity &gt; 2)</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="153,42"
-          Id="Package\OLE DB Extract"
-          TopLeft="261,120" />
-        <NodeLayout
           Size="141,42"
           Id="Package\Excel Extract"
           TopLeft="507,122" />
@@ -1104,68 +1100,26 @@ WHERE        (Quantity &gt; 2)</property>
           Size="154,42"
           Id="Package\Flat File Extract"
           TopLeft="773,125" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\OLE DB Extract"
+          TopLeft="261,120" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\OLE DB Extract">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="152,42"
-          Id="Package\OLE DB Extract\OLE DB Source"
-          TopLeft="292,172" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\OLE DB Extract\Union All"
-          TopLeft="303,320" />
-        <EdgeLayout
-          Id="Package\OLE DB Extract.Paths[OLE DB Source Output]"
-          TopLeft="366.25,214">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,106"
-              Start="0,0"
-              End="0,98.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,98.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\OLE DB Extract\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Excel Extract">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="141,42"
-          Id="Package\Excel Extract\Excel Source"
-          TopLeft="285,145" />
-        <NodeLayout
           Size="123,42"
           Id="Package\Excel Extract\Union All"
           TopLeft="298,265" />
+        <NodeLayout
+          Size="141,42"
+          Id="Package\Excel Extract\Excel Source"
+          TopLeft="285,145" />
         <EdgeLayout
           Id="Package\Excel Extract.Paths[Excel Source Output]"
           TopLeft="357.5,187">
@@ -1242,5 +1196,51 @@ WHERE        (Quantity &gt; 2)</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <TaskHost
+    design-time-name="Package\OLE DB Extract">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="152,42"
+          Id="Package\OLE DB Extract\OLE DB Source"
+          TopLeft="292,172" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\OLE DB Extract\Union All"
+          TopLeft="303,320" />
+        <EdgeLayout
+          Id="Package\OLE DB Extract.Paths[OLE DB Source Output]"
+          TopLeft="366.25,214">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,106"
+              Start="0,0"
+              End="0,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\OLE DB Extract\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

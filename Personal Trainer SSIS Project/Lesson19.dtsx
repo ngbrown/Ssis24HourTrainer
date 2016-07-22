@@ -12,8 +12,8 @@
   DTS:ObjectName="Lesson19"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{AE4161D0-18C2-4B3F-A59C-01C6FDD482EB}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{320F9D5E-16F5-421C-A83E-E57C2DF9C8D2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="AdventureWorks2012">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson18-{F1F663BA-A34D-48EB-8D1D-85CAD85781D2}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson18-{F1F663BA-A34D-48EB-8D1D-85CAD85781D2}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1272,6 +1272,19 @@ WHERE        (Quantity &gt; 2)</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Flat File Extract\EmployeeList">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\OLE DB Extract">
     <LayoutInfo>
@@ -1311,27 +1324,6 @@ WHERE        (Quantity &gt; 2)</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\OLE DB Extract\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Flat File Extract\EmployeeList">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\OLE DB Extract\Excel Destination">
     <Properties>
       <Property>
@@ -1341,6 +1333,14 @@ WHERE        (Quantity &gt; 2)</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\OLE DB Extract\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

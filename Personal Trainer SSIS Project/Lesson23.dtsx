@@ -12,11 +12,21 @@
   DTS:ObjectName="Lesson23"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{576CA569-2685-48A1-B092-25FA8D1A6DB4}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{01E4B661-BD06-4417-98D6-03E64B5E4973}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AdventureWorks2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1644B914-674D-4D49-A5D3-C0F49427E585}"
+      DTS:ObjectName="AdventureWorks2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson22-{1644B914-674D-4D49-A5D3-C0F49427E585}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
@@ -66,16 +76,6 @@
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{1644B914-674D-4D49-A5D3-C0F49427E585}"
-      DTS:ObjectName="HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson22-{1644B914-674D-4D49-A5D3-C0F49427E585}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -411,8 +411,8 @@ FROM            Production.TransactionHistory</property>
               <connections>
                 <connection
                   refId="Package\DFT - Aggregate Data\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
-                  connectionManagerRefId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
+                  connectionManagerID="Package.ConnectionManagers[AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2012]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -722,6 +722,10 @@ FROM            Production.TransactionHistory</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="100,42"
+          Id="Package\DFT - Aggregate Data\Sort"
+          TopLeft="332,361" />
+        <NodeLayout
           Size="162,42"
           Id="Package\DFT - Aggregate Data\AG - Roll up data"
           TopLeft="300,275" />
@@ -733,6 +737,28 @@ FROM            Production.TransactionHistory</property>
           Size="152,42"
           Id="Package\DFT - Aggregate Data\OLE DB Source"
           TopLeft="303,144" />
+        <EdgeLayout
+          Id="Package\DFT - Aggregate Data.Paths[Sort Output]"
+          TopLeft="385,403">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58"
+              Start="0,0"
+              End="0,50.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT - Aggregate Data.Paths[OLE DB Source Output]"
           TopLeft="380,186">
@@ -755,10 +781,6 @@ FROM            Production.TransactionHistory</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="100,42"
-          Id="Package\DFT - Aggregate Data\Sort"
-          TopLeft="332,361" />
         <EdgeLayout
           Id="Package\DFT - Aggregate Data.Paths[Aggregate Output 1]"
           TopLeft="381.5,317">
@@ -773,28 +795,6 @@ FROM            Production.TransactionHistory</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,36.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT - Aggregate Data.Paths[Sort Output]"
-          TopLeft="385,403">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,58"
-              Start="0,0"
-              End="0,50.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

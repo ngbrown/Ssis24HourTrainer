@@ -12,8 +12,8 @@
   DTS:ObjectName="Lesson17"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{C15503F6-ED22-43F6-8C07-E5394D67F76F}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{3F22DCF4-22D9-4ABF-948B-141B033F579E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
@@ -24,7 +24,7 @@
       DTS:ObjectName="AdventureWorks2012">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson17-{F6290B98-6E81-41D1-9588-52C380A7EE20}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson17-{F6290B98-6E81-41D1-9588-52C380A7EE20}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager

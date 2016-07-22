@@ -12,19 +12,19 @@
   DTS:ObjectName="Lesson21"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{9BED3B9D-7D74-443E-98DC-8BA14689CD54}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{A9D907C4-8A4A-48FE-AC33-6AEFD8D4637E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
+      DTS:refId="Package.ConnectionManagers[AdventureWorks2012]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{0B1238AE-04A2-4AEA-B487-886E0C98F4C3}"
-      DTS:ObjectName="HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012">
+      DTS:ObjectName="AdventureWorks2012">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson20-{0B1238AE-04A2-4AEA-B487-886E0C98F4C3}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson20-{0B1238AE-04A2-4AEA-B487-886E0C98F4C3}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -537,8 +537,8 @@
               <connections>
                 <connection
                   refId="Package\DFT - Data Conversion\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
-                  connectionManagerRefId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
+                  connectionManagerID="Package.ConnectionManagers[AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2012]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
