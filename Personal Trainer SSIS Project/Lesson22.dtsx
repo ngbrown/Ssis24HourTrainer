@@ -12,11 +12,21 @@
   DTS:ObjectName="Lesson22"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{6B90506C-44DC-48B4-AFA9-6EA1B357CD4D}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{A1A6052D-FB5D-423C-8DBF-5FA1E42FF21E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[AdventureWorks2012]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{0A8391B1-FA9D-4603-B038-B0D991FAE25C}"
+      DTS:ObjectName="AdventureWorks2012">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson22-{0A8391B1-FA9D-4603-B038-B0D991FAE25C}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
       DTS:CreationName="FLATFILE"
@@ -66,16 +76,6 @@
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{0A8391B1-FA9D-4603-B038-B0D991FAE25C}"
-      DTS:ObjectName="HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson22-{0A8391B1-FA9D-4603-B038-B0D991FAE25C}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -410,8 +410,8 @@ FROM            Production.TransactionHistory</property>
               <connections>
                 <connection
                   refId="Package\DFT - Aggregate Data\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
-                  connectionManagerRefId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
+                  connectionManagerID="Package.ConnectionManagers[AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2012]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>

@@ -12,19 +12,19 @@
   DTS:ObjectName="Lesson20"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{C8D83A19-A458-4B46-AC3D-CA9414133E85}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{6982935C-2B11-4BD5-974B-74E25990351C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">6</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
+      DTS:refId="Package.ConnectionManagers[AdventureWorks2012]"
       DTS:CreationName="OLEDB"
       DTS:DTSID="{F3674CCA-F5FC-460D-ABFD-9C26BD6DDED0}"
-      DTS:ObjectName="HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012">
+      DTS:ObjectName="AdventureWorks2012">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=HAPGLT1502AB\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Lesson20-{F3674CCA-F5FC-460D-ABFD-9C26BD6DDED0}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=AdventureWorks2012;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Lesson20-{F3674CCA-F5FC-460D-ABFD-9C26BD6DDED0}HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -34,7 +34,7 @@
       DTS:ObjectName="Inventory Worksheet.xls">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\dev\Learning\SSIS\Ssis24HourTrainer\Personal Trainer SSIS Project\Inventory Worksheet20.xls;Extended Properties=&quot;Excel 8.0;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=D:\dev\Learning\SSIS\Ssis24HourTrainer\Personal Trainer SSIS Project\Inventory Worksheet20.xls;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -464,8 +464,8 @@
               <connections>
                 <connection
                   refId="Package\DFT - Data Conversion\OLE DB Destination.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
-                  connectionManagerRefId="Package.ConnectionManagers[HAPGLT1502AB\SQLEXPRESS.AdventureWorks2012]"
+                  connectionManagerID="Package.ConnectionManagers[AdventureWorks2012]"
+                  connectionManagerRefId="Package.ConnectionManagers[AdventureWorks2012]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -663,7 +663,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Data Conversion\Excel SRC - Inventory Worksheet">
+    design-time-name="Package\DFT - Data Conversion\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -676,7 +676,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Data Conversion\OLE DB Destination">
+    design-time-name="Package\DFT - Data Conversion\Excel SRC - Inventory Worksheet">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
