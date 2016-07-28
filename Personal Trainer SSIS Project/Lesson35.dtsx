@@ -1,0 +1,79 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/28/2016 12:34:41 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="HAPGLT1502AB"
+  DTS:CreatorName="HDMC\brownn1"
+  DTS:DTSID="{C4D7B372-9409-42E6-920C-DA5EB6C38E0B}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="13.0.1601.5"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Lesson35"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="2"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{94D724FA-784E-4D04-A29E-00BD06E520C2}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CDA579A7-FAD8-49FB-A08E-10D6761513DE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="DeleteStatement">
+      <DTS:VariableValue
+        DTS:DataType="8">DELETE FROM HumanResources.Employee WHERE NationalIDNumber = </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{991EADDF-7B4D-40E4-84B9-98DB7F440CC3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="ID">
+      <DTS:VariableValue
+        DTS:DataType="3">14</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F3B29861-9FAC-4805-8AC9-115A05A0FC80}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::DeleteStatement] + (DT_WSTR, 10) @[User::ID]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E2AA2E72-7A4B-486C-85F7-3DD014080C84}"
+          SQLTask:SqlStatementSource="DELETE FROM HumanResources.Employee WHERE NationalIDNumber = 14" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="165,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="200,128" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
