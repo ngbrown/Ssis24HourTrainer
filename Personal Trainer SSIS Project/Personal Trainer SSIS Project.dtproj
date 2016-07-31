@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">HAPGLT1502AB</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="1AFCyQaJZw==" SSIS:IV="gJUry/Jwl0M=">M7cSoBZIAsmpF3UD0tjRCMP7z+WGPjpKze9KsAHniWsCtdAfTxIBIWDc7FjP8J9E4vMr9wdOujli7ZkH4LuWxo55LywTcWydYazTFmQD63jgqqs9fr9nikegra5vs5xZFpbAwBtIvhhNDC2yns1VBGIfMWtoCT55napu4p+oICih8wVKl/rPtQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="x/nSURXr+g==" SSIS:IV="0wgRnsfvsfY=">uEoql4l/UWFN5abZ8C5UARpivRJSEmIKQxBwQqox3o70O8TWZagf7p6Vn0RgcPlsWar8CRNxo/Ta0alitH3Afa6R/wokhkPnmeWztrTU6Le+f2CI1yfe/efwCHaQQ5yZQ/udagglH/fzN0jcHsFvvbMxgvDbl0zhD7hcwFV0ZMNi6WsYQTQN7w==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -62,6 +62,7 @@
           <SSIS:Package SSIS:Name="Lesson46Child.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Lesson46Parent.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Lesson47.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Lesson48.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="AdventureWorks2012.conmgr" />
@@ -5333,6 +5334,23 @@
                   </SSIS:Properties>
                 </SSIS:Parameter>
               </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Lesson48.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{C5CE97AF-D46D-402C-9F7B-3CD1A8CD52B6}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Lesson48</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6BFC0249-B115-4EF1-B16E-35642CA6802D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
