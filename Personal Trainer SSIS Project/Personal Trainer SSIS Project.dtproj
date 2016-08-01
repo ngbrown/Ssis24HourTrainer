@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">HAPGLT1502AB</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="4fxVuY0E0w==" SSIS:IV="ZA7s2BvHsUo=">NFHN8eMssJgbUWf2t8cdaXMC2y0ep2L2YKtuzYAF53FtCfUqG3gN2vDNl3y2Kf8gLJ/c7+EIIMzUlDl/AhhpEWJx57vAhoPPdEs6h1SFx9rLmXsigoFK6rg6rSCw3upujzcVee6piW4nlLmckVrQIQ5b+SD/zcVmK1JoOSQvdO8vhkASL3C9JA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="nbmE6jZUFQ==" SSIS:IV="tb/AvKfQeVw=">fEUWdPN+uu/s1FLTixfskRX8Q2QBQYuHnHYHjt+HmAvhh+E7ljnyKHcAwV+3u1gAZZMWqDI6rbBC16KlwT05YNmeWwKXV+hYpKUIxxuvERAKjXHxINYfz8xjNHNb9F71ztBEuv7x9Mwjp0L1kP7niImYSCUWD+h+xFNeWOKIzzhPpflxvsp8iQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -66,6 +66,7 @@
           <SSIS:Package SSIS:Name="Lesson49.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Lesson50.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Lesson51.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Lesson60.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="AdventureWorks2012.conmgr" />
@@ -5488,6 +5489,23 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{F94F8AC2-F73C-4C7C-8CDB-A17AAD31D1CF}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">2</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Lesson60.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{108BC7D4-55C4-46FB-BCBD-4028E097045B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Lesson60</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{63B0D8B7-C442-4BCE-9709-FD695A159CBA}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
